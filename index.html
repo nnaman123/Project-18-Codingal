@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+   <html>
+    <title>Javascript</title>
+   </html>
+   <body>
+    <h1 id="MyH"></h1>
+    <p id="MyP"></p>
+
+     <script>
+       //simple javascript date and time with time zone and time updates every second
+       var dt = new Date();
+       var h = dt.getHours();
+       var m = dt.getMinutes();
+       var s = dt.getSeconds();
+       var tz = Intl.DateTimeFormat().resolvedOptions().timeZoneOffset / 60;
+
+       setInterval(function() {
+         dt = new Date();
+         h = dt.getHours();
+         m = dt.getMinutes();
+         s = dt.getSeconds();
+         tz = Intl.DateTimeFormat().resolvedOptions().timeZoneOffset / 60;
+
+         document.getElementById("MyH").innerHTML = h + ":" + m + ":" + s 
+         document.getElementById("MyP").innerHTML = "Current date: " + dt.toLocaleDateString();
+       }, 1000); // updates every second
+
+     </script>
+   </body>
